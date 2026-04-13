@@ -2,6 +2,8 @@ package models
 
 import "go.mongodb.org/mongo-driver/v2/bson"
 
+
+
 type Genre struct {
 	GenreID   int    `json:"genre_id" bson:"genre_id" validate:"required"`
 	GenreName string `json:"genre_name" bson:"genre_name" validate:"required"`
