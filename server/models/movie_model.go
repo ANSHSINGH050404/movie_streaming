@@ -13,10 +13,10 @@ type Ranking struct {
 }
 
 type Movie struct {
-	ID          bson.ObjectID `json:"_id" bson:"_id"`
+	ID          bson.ObjectID `json:"id,omitempty" bson:"_id,omitempty"`
 	ImdbID      string        `json:"imdb_id" bson:"imdb_id" validate:"required"`
 	Title       string        `json:"title" bson:"title" validate:"required,min=3,max=100"`
-	AdminReview string        `json:"admin_review" bson:"admin_review" validate:"required,min=10,max=1000"`
+	AdminReview string        `json:"admin_review" bson:"admin_review"`
 	Genre       []Genre       `json:"genre" bson:"genre" validate:"required,dive"`
 	Ranking     Ranking       `json:"ranking" bson:"ranking" validate:"required"`
 	PosterPath  string        `json:"poster_path" bson:"poster_path" validate:"required,url"`

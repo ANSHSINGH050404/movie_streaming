@@ -17,6 +17,7 @@ func main() {
 
 	r.GET("/movies", controller.GetMovies())
 	r.GET("/movies/:imdb_id", controller.GetMovieById())
+	r.POST("/addmovie", controller.AddMovie())
 
 	if err := r.Run(":8080"); err != nil {
 		fmt.Println("Failed to start server: ", err)
