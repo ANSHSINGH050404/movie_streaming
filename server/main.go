@@ -17,14 +17,13 @@ func main() {
 		c.String(200, "Hello World")
 	})
 
-	r.GET("/movies", controller.GetMovies())
-	r.GET("/movies/:imdb_id", controller.GetMovieById())
-
 	// Protected Routes
 	protected := r.Group("/")
 	protected.Use(middleware.AuthMiddleware())
 	{
 		protected.POST("/addmovie", controller.AddMovie())
+		protected.GET("/movies", controller.GetMovies())
+		protected.GET("/movies/:imdb_id", controller.GetMovieById())
 	}
 
 	r.POST("/register", controller.RegisterUser(database.Client))
